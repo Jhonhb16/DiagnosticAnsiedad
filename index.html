@@ -259,11 +259,11 @@
     document.getElementById('step7').classList.remove('active');
     document.getElementById('result').style.display = 'block';
 
-    // Cargar botón después de asegurar carga de recursos
+    // Mostrar botón después de asegurar carga de recursos
     setTimeout(() => {
       const container = document.getElementById("checkout-container");
       container.innerHTML = `
-        <a onclick="return false;" href="https://pay.hotmart.com/W99622832H?checkoutMode=2&off=ocl87h2q " class="hotmart__button-checkout">Comprar Ahora por $5 USD</a>
+        <a onclick="return false;" href="https://pay.hotmart.com/W99622832H?off=ocl87h2q&checkoutMode=10 " class="hotmart__button-checkout">Comprar Ahora por $5 USD</a>
       `;
     }, 500);
   }
