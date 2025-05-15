@@ -166,6 +166,7 @@
 <div class="step-container">
   <button class="start-btn" onclick="startSteps()">Iniciar Diagnóstico de Ansiedad</button>
 
+  <!-- Preguntas existentes -->
   <div class="step" id="step1">
     <h2>¿Sientes nerviosismo frecuente?</h2>
     <p>Esto puede incluir aceleración del corazón, sudoración o inquietud constante.</p>
@@ -217,9 +218,28 @@
   <div class="step" id="step7">
     <h2>¿Sientes que necesitas ayuda profesional pero no sabes por dónde empezar?</h2>
     <p>Nuestra guía te brinda técnicas accesibles y sencillas para empezar hoy mismo.</p>
-    <button onclick="showResult()">Finalizar</button>
+    <button onclick="nextStep('step7', 'step8')">Finalizar</button>
+    <div class="arrow"></div>
   </div>
 
+  <!-- Nueva pregunta 8 -->
+  <div class="step" id="step8">
+    <h2>¿Has gastado dinero en medicamentos y consultas con especialistas para aliviar estos síntomas?</h2>
+    <button onclick="nextStep('step8', 'step9')">$0</button>
+    <button onclick="nextStep('step8', 'step9')">Más de $20</button>
+    <button onclick="nextStep('step8', 'step9')">Más de $50</button>
+    <button onclick="nextStep('step8', 'step9')">Más de $100</button>
+    <div class="arrow"></div>
+  </div>
+
+  <!-- Nueva pregunta 9 -->
+  <div class="step" id="step9">
+    <h2>Después de probar con medicamentos o consultar con especialistas, ¿estarías dispuesto a probar una solución práctica, que te puede costar menos de lo que cuesta cualquier especialista, para reducir tu ansiedad en solo 7 días?</h2>
+    <button onclick="nextStep('step9', 'result')">Sí</button>
+    <button onclick="nextStep('step9', 'result')">No</button>
+  </div>
+
+  <!-- Resultado final -->
   <div class="result" id="result" style="display:none;">
     <h2>¡Felicidades! Has completado el diagnóstico.</h2>
     <p>Los síntomas que mencionaste pueden mejorar con nuestra guía digital "<strong>Adiós Síntomas</strong>", diseñada para eliminar los síntomas de la ansiedad en 7 días con técnicas milenarias.</p>
@@ -241,7 +261,7 @@
 <script nomodule src="https://unpkg.com/ionicons @7.1.0/dist/ionicons/ionicons.js"></script>
 <script>
   let currentStep = 0;
-  const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7'];
+  const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8', 'step9'];
 
   function startSteps() {
     document.querySelector('.start-btn').style.display = 'none';
@@ -256,10 +276,9 @@
   }
 
   function showResult() {
-    document.getElementById('step7').classList.remove('active');
+    document.getElementById('step9').classList.remove('active');
     document.getElementById('result').style.display = 'block';
 
-    // Mostrar botón después de asegurar carga de recursos
     setTimeout(() => {
       const container = document.getElementById("checkout-container");
       container.innerHTML = `
