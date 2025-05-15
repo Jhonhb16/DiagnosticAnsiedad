@@ -143,11 +143,27 @@
       animation: bounceIn 1s ease;
     }
 
+    .result.happy {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+    }
+
+    .result.sad {
+      background: #ffebee;
+      border-color: #ffcdd2;
+    }
+
     .result h2 {
-      color: #2E7D32;
       font-size: 1.3rem;
-      font-weight: bold;
       margin-bottom: 10px;
+    }
+
+    .result.happy h2 {
+      color: #2E7D32;
+    }
+
+    .result.sad h2 {
+      color: #C62828;
     }
 
     .result h3 {
@@ -264,12 +280,12 @@
 
   <div class="step" id="step8">
     <h2>Después de probar con medicamentos o consultar con especialistas, ¿estarías dispuesto a probar una solución práctica, que te puede costar menos de lo que cuesta cualquier especialista, para reducir tu ansiedad en solo 7 días?</h2>
-    <button class="btn-option btn-si" onclick="nextStep('step8', 'result')">Sí</button>
-    <button class="btn-option btn-no" onclick="nextStep('step8', 'result')">No</button>
+    <button class="btn-option btn-si" onclick="nextStep('step8', 'result_yes')">Sí</button>
+    <button class="btn-option btn-no" onclick="nextStep('step8', 'result_no')">No</button>
   </div>
 
-  <!-- RESULTADO FINAL -->
-  <div class="result" id="result" style="display:none;">
+  <!-- RESULTADO FINAL (SI) -->
+  <div class="result happy" id="result_yes" style="display:none;">
     <h2>🎉 ¡Felicidades!</h2>
     <h3>Has completado el diagnóstico personalizado. Estás a punto de darle un giro a tu bienestar emocional.</h3>
     <p>Los síntomas que mencionaste pueden mejorar con nuestra guía digital "<strong>Adiós Síntomas</strong>", diseñada para eliminar los síntomas de la ansiedad en 7 días con técnicas milenarias.</p>
@@ -281,6 +297,15 @@
       <li>Manejar las crisis de ansiedad desde casa</li>
     </ul>
     <p>Es como tener tu propia terapia personal, pero en formato digital y por tan solo <strong>$5 USD</strong>.</p>
+  </div>
+
+  <!-- RESULTADO FINAL (NO) -->
+  <div class="result sad" id="result_no" style="display:none;">
+    <h2>😔 Entendemos tu decisión</h2>
+    <h3>Tu bienestar emocional es importante, incluso si hoy no das este paso.</h3>
+    <p>Sabemos que buscar ayuda no siempre es fácil. Pero recuerda: hay soluciones accesibles, naturales y efectivas para manejar tu ansiedad.</p>
+    <p>Nuestra guía "<strong>Adiós Síntomas</strong>" está pensada para quienes buscan resolver su ansiedad sin depender de medicamentos ni gastos elevados.</p>
+    <p>Si en el futuro decides tomar acción, estaremos aquí para ayudarte.</p>
   </div>
 
   <!-- Contenedor dinámico para el botón de compra -->
@@ -300,15 +325,17 @@
       document.getElementById(prevId).classList.remove('active');
     }
 
-    if (nextId === 'result') {
-      showResult();
+    if (nextId === 'result_yes') {
+      showResultYes();
+    } else if (nextId === 'result_no') {
+      showResultNo();
     } else {
       document.getElementById(nextId).classList.add('active');
     }
   }
 
-  function showResult() {
-    document.getElementById('result').style.display = 'block';
+  function showResultYes() {
+    document.getElementById('result_yes').style.display = 'block';
 
     setTimeout(() => {
       const container = document.getElementById("checkout-container");
@@ -316,6 +343,17 @@
         <a target="_blank" rel="noopener" href="https://pay.hotmart.com/W99622832H?off=ocl87h2q&checkoutMode=10 " class="hotmart__button-checkout">Comprar Ahora por $5 USD</a>
       `;
     }, 500);
+  }
+
+  function showResultNo() {
+    document.getElementById('result_no').style.display = 'block';
+
+    setTimeout(() => {
+      const container = document.getElementById("checkout-container");
+      container.innerHTML = `
+        <p style="color:#666; font-size:0.95rem;">Gracias por tu tiempo. Vuelve cuando estés listo para comenzar.</p>
+      `;
+    }, 300);
   }
 
   // Cargar Hotmart globalmente
