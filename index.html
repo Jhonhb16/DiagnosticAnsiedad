@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diagnóstico de Ansiedad - Adiós Síntomas</title>
+  <title>Adiós Síntomas - Diagnóstico de Ansiedad</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f5f7fa;
+      background: #f9fbfc;
       margin: 0;
       padding: 0;
       color: #333;
@@ -17,12 +17,12 @@
       background: linear-gradient(to right, #4CAF50, #81C784);
       color: white;
       text-align: center;
-      padding: 15px 10px;
+      padding: 20px 10px;
     }
 
     h1 {
       margin: 0;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
 
     .step-container {
@@ -34,9 +34,9 @@
     .step {
       display: none;
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 15px;
+      padding: 20px;
       margin-bottom: 20px;
       animation: fadeIn 0.5s ease-in-out;
     }
@@ -93,8 +93,8 @@
     button.start-btn {
       display: block;
       margin: 20px auto;
-      padding: 12px 25px;
-      font-size: 1rem;
+      padding: 14px 25px;
+      font-size: 1.1rem;
       background: #FF9800;
       color: white;
       border: none;
@@ -107,24 +107,53 @@
       background: #FB8C00;
     }
 
-    .step button {
+    .btn-option {
+      display: inline-block;
       margin: 8px 5px;
-      padding: 10px 20px;
-      font-size: 0.95rem;
+      padding: 12px 20px;
+      font-size: 1rem;
       border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-si {
+      background: #66BB6A;
+      color: white;
+    }
+
+    .btn-no {
+      background: #EF5350;
+      color: white;
+    }
+
+    .btn-other {
+      background: #42A5F5;
+      color: white;
     }
 
     .result {
       background: #e8f5e9;
       border: 2px solid #a5d6a7;
-      border-radius: 10px;
-      padding: 15px;
+      border-radius: 12px;
+      padding: 20px;
       text-align: center;
+      animation: bounceIn 1s ease;
     }
 
     .result h2 {
       color: #2E7D32;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .result h3 {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
     }
 
     .hotmart__button-checkout {
@@ -132,12 +161,13 @@
       margin-top: 20px;
       background-color: #e53935;
       color: white !important;
-      padding: 12px 25px;
-      font-size: 1rem;
+      padding: 14px 28px;
+      font-size: 1.1rem;
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
       transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .hotmart__button-checkout:hover {
@@ -149,10 +179,18 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes bounceIn {
+      0%   { opacity: 0; transform: scale(0.8); }
+      50%  { opacity: 1; transform: scale(1.05); }
+      70%  { transform: scale(0.98); }
+      100% { transform: scale(1); }
+    }
+
     ul {
       padding-left: 15px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-align: left;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -166,82 +204,74 @@
 <div class="step-container">
   <button class="start-btn" onclick="startSteps()">Iniciar Diagnóstico de Ansiedad</button>
 
-  <!-- Preguntas existentes -->
+  <!-- PREGUNTAS -->
   <div class="step" id="step1">
     <h2>¿Sientes nerviosismo frecuente?</h2>
     <p>Esto puede incluir aceleración del corazón, sudoración o inquietud constante.</p>
-    <button onclick="nextStep('step1', 'step2')">Sí</button>
-    <button onclick="nextStep('step1', 'step2')">No</button>
+    <button class="btn-option btn-si" onclick="nextStep('step1', 'step2')">Sí</button>
+    <button class="btn-option btn-no" onclick="nextStep('step1', 'step2')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step2">
     <h2>¿Tienes problemas para dormir por la noche?</h2>
     <p>El insomnio es un síntoma común relacionado con la ansiedad y el estrés.</p>
-    <button onclick="nextStep('step2', 'step3')">Sí</button>
-    <button onclick="nextStep('step2', 'step3')">No</button>
+    <button class="btn-option btn-si" onclick="nextStep('step2', 'step3')">Sí</button>
+    <button class="btn-option btn-no" onclick="nextStep('step2', 'step3')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step3">
     <h2>¿Te cuesta concentrarte durante el día?</h2>
     <p>La falta de claridad mental y la fatiga emocional son señales a considerar.</p>
-    <button onclick="nextStep('step3', 'step4')">Sí</button>
-    <button onclick="nextStep('step3', 'step4')">No</button>
+    <button class="btn-option btn-si" onclick="nextStep('step3', 'step4')">Sí</button>
+    <button class="btn-option btn-no" onclick="nextStep('step3', 'step4')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step4">
     <h2>¿Presentas dolores musculares o tensiones sin causa física aparente?</h2>
     <p>Estos pueden ser efectos físicos de una mente ansiosa.</p>
-    <button onclick="nextStep('step4', 'step5')">Sí</button>
-    <button onclick="nextStep('step4', 'step5')">No</button>
+    <button class="btn-option btn-si" onclick="nextStep('step4', 'step5')">Sí</button>
+    <button class="btn-option btn-no" onclick="nextStep('step4', 'step5')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step5">
     <h2>¿Has sentido que tu mente se queda en blanco repentinamente?</h2>
     <p>Este es un mecanismo de defensa ante situaciones estresantes.</p>
-    <button onclick="nextStep('step5', 'step6')">Sí</button>
-    <button onclick="nextStep('step5', 'step6')">No</button>
+    <button class="btn-option btn-si" onclick="nextStep('step5', 'step6')">Sí</button>
+    <button class="btn-option btn-no" onclick="nextStep('step5', 'step6')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step6">
     <h2>¿Evitas situaciones sociales por temor a sentirte incómodo?</h2>
     <p>Si esto sucede, podría estar afectando tu calidad de vida.</p>
-    <button onclick="nextStep('step6', 'step7')">Sí</button>
-    <button onclick="nextStep('step6', 'step7')">No</button>
+    <button class="btn-option btn-si" onclick="nextStep('step6', 'step7')">Sí</button>
+    <button class="btn-option btn-no" onclick="nextStep('step6', 'step7')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step7">
-    <h2>¿Sientes que necesitas ayuda profesional pero no sabes por dónde empezar?</h2>
-    <p>Nuestra guía te brinda técnicas accesibles y sencillas para empezar hoy mismo.</p>
-    <button onclick="nextStep('step7', 'step8')">Finalizar</button>
-    <div class="arrow"></div>
-  </div>
-
-  <!-- Nueva pregunta 8 -->
-  <div class="step" id="step8">
     <h2>¿Has gastado dinero en medicamentos y consultas con especialistas para aliviar estos síntomas?</h2>
-    <button onclick="nextStep('step8', 'step9')">$0</button>
-    <button onclick="nextStep('step8', 'step9')">Más de $20</button>
-    <button onclick="nextStep('step8', 'step9')">Más de $50</button>
-    <button onclick="nextStep('step8', 'step9')">Más de $100</button>
+    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Nunca he gastado ($0)</button>
+    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $20</button>
+    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $50</button>
+    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $100</button>
     <div class="arrow"></div>
   </div>
 
-  <!-- Nueva pregunta 9 -->
-  <div class="step" id="step9">
+  <div class="step" id="step8">
     <h2>Después de probar con medicamentos o consultar con especialistas, ¿estarías dispuesto a probar una solución práctica, que te puede costar menos de lo que cuesta cualquier especialista, para reducir tu ansiedad en solo 7 días?</h2>
-    <button onclick="nextStep('step9', 'result')">Sí</button>
-    <button onclick="nextStep('step9', 'result')">No</button>
+    <button class="btn-option btn-si" onclick="nextStep('step8', 'result')">Sí</button>
+    <button class="btn-option btn-no" onclick="nextStep('step8', 'result')">No</button>
   </div>
 
-  <!-- Resultado final -->
+  <!-- RESULTADO FINAL -->
   <div class="result" id="result" style="display:none;">
-    <h2>¡Felicidades! Has completado el diagnóstico.</h2>
+    <h2>🎉 ¡Felicidades!</h2>
+    <h3>Has completado el diagnóstico personalizado. Estás a punto de darle un giro a tu bienestar emocional.</h3>
     <p>Los síntomas que mencionaste pueden mejorar con nuestra guía digital "<strong>Adiós Síntomas</strong>", diseñada para eliminar los síntomas de la ansiedad en 7 días con técnicas milenarias.</p>
     <p>Con esta guía podrás:</p>
     <ul>
@@ -250,7 +280,7 @@
       <li>Recuperar la claridad mental y la tranquilidad</li>
       <li>Manejar las crisis de ansiedad desde casa</li>
     </ul>
-    <p>Puedes adquirirla ahora por tan solo <strong>$5 USD</strong>.</p>
+    <p>Es como tener tu propia terapia personal, pero en formato digital y por tan solo <strong>$5 USD</strong>.</p>
   </div>
 
   <!-- Contenedor dinámico para el botón de compra -->
@@ -260,9 +290,6 @@
 <script type="module" src="https://unpkg.com/ionicons @7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons @7.1.0/dist/ionicons/ionicons.js"></script>
 <script>
-  let currentStep = 0;
-  const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8', 'step9'];
-
   function startSteps() {
     document.querySelector('.start-btn').style.display = 'none';
     nextStep(null, 'step1');
@@ -272,11 +299,15 @@
     if (prevId) {
       document.getElementById(prevId).classList.remove('active');
     }
-    document.getElementById(nextId).classList.add('active');
+
+    if (nextId === 'result') {
+      showResult();
+    } else {
+      document.getElementById(nextId).classList.add('active');
+    }
   }
 
   function showResult() {
-    document.getElementById('step9').classList.remove('active');
     document.getElementById('result').style.display = 'block';
 
     setTimeout(() => {
