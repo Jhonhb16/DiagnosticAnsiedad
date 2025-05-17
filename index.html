@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Adiós Síntomas - Diagnóstico de Ansiedad</title>
+  <title>Dormir Bien Sin Pastillas</title>
+
   <!-- Facebook Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -14,15 +15,15 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js ');
-
-    fbq('init', '1016052750183891'); 
+    fbq('init', '1016052750183891'); // Reemplaza con tu ID de Pixel
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1016052750183891&ev=PageView&noscript=1 "/>
+         src="https://www.facebook.com/tr?id=1016052750183891&ev=PageView&noscript=1 "/>
   </noscript>
   <!-- End Facebook Pixel Code -->
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -280,28 +281,33 @@
       text-align: left;
       line-height: 1.5;
     }
+
+    ion-icon {
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
 
 <div class="hero">
-  <h1><ion-icon name="book-outline"></ion-icon> Adiós Síntomas</h1>
-  <p class="subtitle">Técnicas Milenarias para Eliminar los Síntomas de la Ansiedad</p>
+  <h1><ion-icon name="moon-outline"></ion-icon> Dormir Bien Sin Pastillas</h1>
+  <p class="subtitle">Guía paso a paso para recuperar un sueño profundo y natural en solo 7 días.</p>
 </div>
 
 <div class="intro">
-  <h2>¿Te sientes nervioso(a), agotado(a) o sin control?</h2>
-  <p>Tu ansiedad no tiene por qué definirte. Conoce una solución natural, efectiva y en solo 7 días.</p>
+  <h2>¿Alguna vez te has quedado mirando el techo, rogando que llegue el sueño?</h2>
+  <p>Entiendo tu frustración. Yo también pasé noches interminables.  
+     Pero aprendí a calmar mi mente y recuperar el descanso... sin pastillas ni terapias costosas.</p>
 
   <div class="benefits">
-    <div class="benefit">🌙 Mejor sueño nocturno</div>
-    <div class="benefit">💪 Menos tensión física</div>
-    <div class="benefit">💬 Mayor confianza social</div>
+    <div class="benefit">🌙 Sueño reparador nocturno</div>
+    <div class="benefit">🧠 Calma mental antes de dormir</div>
+    <div class="benefit">💬 Menos pensamientos acelerados</div>
     <div class="benefit">💰 Sin gastos innecesarios</div>
   </div>
 
   <div class="start-btn-container">
-    <button class="start-btn" onclick="startSteps()">Iniciar Diagnóstico de Ansiedad</button>
+    <button class="start-btn" onclick="startSteps()">Iniciar Diagnóstico</button>
   </div>
 </div>
 
@@ -309,56 +315,56 @@
 
   <!-- PREGUNTAS -->
   <div class="step" id="step1">
-    <h2>¿Sientes nerviosismo frecuente?</h2>
-    <p>Esto puede incluir aceleración del corazón, sudoración o inquietud constante.</p>
+    <h2>¿Tienes dificultad para conciliar el sueño aunque estés cansado(a)?</h2>
+    <p>Es muy común. La ansiedad muchas veces aparece justo cuando intentas descansar.</p>
     <button class="btn-option btn-si" onclick="nextStep('step1', 'step2')">Sí</button>
     <button class="btn-option btn-no" onclick="nextStep('step1', 'step2')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step2">
-    <h2>¿Tienes problemas para dormir por la noche?</h2>
-    <p>El insomnio es un síntoma común relacionado con la ansiedad y el estrés.</p>
+    <h2>¿Te despiertas durante la noche y cuesta volver a dormirte?</h2>
+    <p>El insomnio es señal de estrés acumulado. Y puede cambiar.</p>
     <button class="btn-option btn-si" onclick="nextStep('step2', 'step3')">Sí</button>
     <button class="btn-option btn-no" onclick="nextStep('step2', 'step3')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step3">
-    <h2>¿Te cuesta concentrarte durante el día?</h2>
-    <p>La falta de claridad mental y la fatiga emocional son señales a considerar.</p>
+    <h2>¿Has usado pastillas o infusiones para poder dormir?</h2>
+    <p>A veces buscamos soluciones rápidas… pero queremos una solución real.</p>
     <button class="btn-option btn-si" onclick="nextStep('step3', 'step4')">Sí</button>
     <button class="btn-option btn-no" onclick="nextStep('step3', 'step4')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step4">
-    <h2>¿Presentas dolores musculares o tensiones sin causa física aparente?</h2>
-    <p>Estos pueden ser efectos físicos de una mente ansiosa.</p>
+    <h2>¿Tu mente parece no apagarse cuando intentas dormir?</h2>
+    <p>La mente acelerada es uno de los mayores obstáculos para un sueño tranquilo.</p>
     <button class="btn-option btn-si" onclick="nextStep('step4', 'step5')">Sí</button>
     <button class="btn-option btn-no" onclick="nextStep('step4', 'step5')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step5">
-    <h2>¿Has sentido que tu mente se queda en blanco repentinamente?</h2>
-    <p>Este es un mecanismo de defensa ante situaciones estresantes.</p>
+    <h2>¿Sientes tensión física o nerviosismo antes de dormir?</h2>
+    <p>Tu cuerpo también habla cuando el estrés se queda atrapado.</p>
     <button class="btn-option btn-si" onclick="nextStep('step5', 'step6')">Sí</button>
     <button class="btn-option btn-no" onclick="nextStep('step5', 'step6')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step6">
-    <h2>¿Evitas situaciones sociales por temor a sentirte incómodo?</h2>
-    <p>Si esto sucede, podría estar afectando tu calidad de vida.</p>
+    <h2>¿Evitas situaciones sociales por temor a sentirte incómodo(a)?</h2>
+    <p>La ansiedad puede aislar. Pero no tiene por qué seguir así.</p>
     <button class="btn-option btn-si" onclick="nextStep('step6', 'step7')">Sí</button>
     <button class="btn-option btn-no" onclick="nextStep('step6', 'step7')">No</button>
     <div class="arrow"></div>
   </div>
 
   <div class="step" id="step7">
-    <h2>¿Has gastado dinero en medicamentos y consultas con especialistas para aliviar estos síntomas?</h2>
-    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Nunca he gastado ($0)</button>
+    <h2>¿Cuánto has invertido ya buscando soluciones para dormir mejor?</h2>
+    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">$0 – No he probado nada</button>
     <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $20</button>
     <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $50</button>
     <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $100</button>
@@ -366,7 +372,7 @@
   </div>
 
   <div class="step" id="step8">
-    <h2>Después de probar con medicamentos o consultar con especialistas, ¿estarías dispuesto a probar una solución práctica, que te puede costar menos de lo que cuesta cualquier especialista, para reducir tu ansiedad en solo 7 días?</h2>
+    <h2>Después de probar con medicamentos o consultar con especialistas, ¿estarías dispuesto a probar una solución práctica, que te puede costar menos de lo que cuesta cualquier especialista, para recuperar el sueño tranquilo en solo 7 días?</h2>
     <button class="btn-option btn-si" onclick="nextStep('step8', 'result_yes')">Sí</button>
     <button class="btn-option btn-no" onclick="nextStep('step8', 'result_no')">No</button>
   </div>
@@ -374,25 +380,29 @@
   <!-- RESULTADO FINAL (SI) -->
   <div class="result happy" id="result_yes" style="display:none;">
     <h2>🎉 ¡Felicidades!</h2>
-    <h3>Has completado el diagnóstico personalizado. Estás a punto de darle un giro a tu bienestar emocional.</h3>
-    <p>Los síntomas que mencionaste pueden mejorar con nuestra guía digital "<strong>Adiós Síntomas</strong>", diseñada para eliminar los síntomas de la ansiedad en 7 días con técnicas milenarias.</p>
-    <p>Con esta guía podrás:</p>
+    <h3>Estás a punto de darle un giro a tu vida nocturna.</h3>
+    <p>Lo que has vivido no es casualidad. Muchas personas que no pueden dormir bien terminan desarrollando ansiedad y fatiga emocional.</p>
+    <p>Nuestra guía "<strong>Adiós Síntomas</strong>" ha ayudado a miles a:</p>
     <ul>
-      <li>Reducir la tensión muscular y el estrés acumulado</li>
-      <li>Mejorar tu calidad del sueño</li>
-      <li>Recuperar la claridad mental y la tranquilidad</li>
-      <li>Manejar las crisis de ansiedad desde casa</li>
+      <li>Relajar la mente antes de dormir</li>
+      <li>Calmar los pensamientos que te mantienen despierto(a)</li>
+      <li>Recuperar la claridad mental al día siguiente</li>
+      <li>Reducir la necesidad de pastillas para dormir</li>
     </ul>
-    <p>Es como tener tu propia terapia personal, pero en formato digital y <strong>EN OFERTA</strong>.</p>
+    <p>Por tiempo limitado, puedes acceder a esta guía por solo <strong>$5 USD</strong>.  
+       Es menos que un café.  
+       Es menos que una consulta médica.  
+       Pero puede darte un descanso verdadero.</p>
+    <p><em>Y si no notas cambios en 7 días, te devolvemos tu dinero. Sin preguntas.</em></p>
   </div>
 
   <!-- RESULTADO FINAL (NO) -->
   <div class="result sad" id="result_no" style="display:none;">
-    <h2>😔 Entendemos tu decisión</h2>
-    <h3>Tu bienestar emocional es importante, incluso si hoy no das este paso.</h3>
-    <p>Sabemos que buscar ayuda no siempre es fácil. Pero recuerda: hay soluciones accesibles, naturales y efectivas para manejar tu ansiedad.</p>
-    <p>Nuestra guía "<strong>Adiós Síntomas</strong>" está pensada para quienes buscan resolver su ansiedad sin depender de medicamentos ni gastos elevados.</p>
-    <p>Si en el futuro decides tomar acción, estaremos aquí para ayudarte.</p>
+    <h2>😔 Entiendo tu decisión</h2>
+    <h3>Tu bienestar emocional y físico son importantes, incluso si hoy no das este paso.</h3>
+    <p>Sabemos que buscar ayuda no siempre es fácil. Pero recuerda: hay soluciones accesibles, naturales y efectivas.</p>
+    <p>Si en el futuro decides tomar acción, nuestra guía "<strong>Adiós Síntomas</strong>" estará aquí para ayudarte.</p>
+    <p>No estás solo(a). Y no tienes que seguir así.</p>
   </div>
 
   <!-- Contenedor dinámico para el botón de compra -->
@@ -405,6 +415,7 @@
   function startSteps() {
     document.querySelector('.start-btn').style.display = 'none';
     nextStep(null, 'step1');
+    fbq('track', 'Lead');
   }
 
   function nextStep(prevId, nextId) {
@@ -427,7 +438,9 @@
     setTimeout(() => {
       const container = document.getElementById("checkout-container");
       container.innerHTML = `
-        <a target="_blank" rel="noopener" href="https://pay.hotmart.com/W99622832H?checkoutMode=10 " class="hotmart__button-checkout">Comprar Ahora en OFERTA</a>
+        <a target="_blank" rel="noopener" href="https://pay.hotmart.com/W99622832H?off=ocl87h2q&checkoutMode=10 " class="hotmart__button-checkout" onclick="trackPurchase()">
+          🌙 ¡Sí! Quiero empezar a dormir tranquilo(a) HOY
+        </a>
       `;
     }, 500);
   }
@@ -441,6 +454,10 @@
         <p style="color:#666; font-size:0.95rem;">Gracias por tu tiempo. Vuelve cuando estés listo para comenzar.</p>
       `;
     }, 300);
+  }
+
+  function trackPurchase() {
+    fbq('track', 'Purchase', { value: 5.00, currency: 'USD' });
   }
 
   // Cargar Hotmart globalmente
