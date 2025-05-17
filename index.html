@@ -25,33 +25,38 @@
   <!-- End Facebook Pixel Code -->
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f9fbfc;
+      background: #f8fafc;
       margin: 0;
       padding: 0;
       color: #333;
+      line-height: 1.6;
     }
 
     .hero {
       background: linear-gradient(to bottom right, #4CAF50, #81C784);
       color: white;
       text-align: center;
-      padding: 25px 20px;
+      padding: 30px 20px;
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     .hero h1 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin: 0;
-      line-height: 1.4;
+      font-weight: bold;
     }
 
     .hero p.subtitle {
       font-size: 0.95rem;
-      margin-top: 5px;
+      margin-top: 8px;
       font-weight: 300;
     }
 
@@ -86,7 +91,7 @@
       background: #e8f5e9;
       border-radius: 10px;
       padding: 10px 15px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       flex: 1 1 45%;
       min-width: 120px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -101,7 +106,7 @@
       display: inline-block;
       padding: 14px 25px;
       font-size: 1.1rem;
-      background: #FF9800;
+      background: #FFA000;
       color: white;
       border: none;
       border-radius: 10px;
@@ -285,129 +290,198 @@
     ion-icon {
       vertical-align: middle;
     }
+
+    .testimonial-slider {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .testimonial-slide {
+      display: none;
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+    }
+
+    .testimonial-slide.active {
+      display: block;
+    }
+
+    .testimonial-icon {
+      margin-right: 10px;
+    }
+
+    .small-text {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    .symptom-icon {
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
 
 <div class="hero">
   <h1><ion-icon name="moon-outline"></ion-icon> Dormir Bien Sin Pastillas</h1>
-  <p class="subtitle">Guía paso a paso para recuperar un sueño profundo y natural.</p>
+  <p class="subtitle">Guía paso a paso para recuperar un sueño profundo y natural en solo 7 días.</p>
 </div>
 
 <div class="intro">
   <h2>¿Alguna vez te has quedado mirando el techo, rogando que llegue el sueño?</h2>
-  <p>Entiendo tu frustración. Yo también pasé noches interminables.  
-     Pero aprendí a calmar mi mente y recuperar el descanso... sin pastillas ni terapias costosas.</p>
+  <p>Entiendo tu frustración. Yo también pasé noches interminables.<br/>
+     Pero aprendí a calmar mi mente y recuperar el descanso...<br/>
+     <strong>sin pastillas ni terapias costosas</strong>.</p>
 
-  <div class="benefits">
-    <div class="benefit">🌙 Sueño reparador nocturno</div>
-    <div class="benefit">🧠 Calma mental antes de dormir</div>
-    <div class="benefit">💬 Menos pensamientos acelerados</div>
-    <div class="benefit">💰 Sin gastos innecesarios</div>
-  </div>
-
+  <!-- Botón Inicio -->
   <div class="start-btn-container">
-    <button class="start-btn" onclick="startSteps()">Iniciar Diagnóstico</button>
+    <button class="start-btn" onclick="startSteps()">Descubre si esta guía es para ti</button>
+    <div class="small-text">Gratis por hoy | Sin compromiso</div>
   </div>
-</div>
-
-<div class="step-container">
 
   <!-- PREGUNTAS -->
-  <div class="step" id="step1">
-    <h2>¿Tienes dificultad para conciliar el sueño aunque estés cansado(a)?</h2>
-    <p>Es muy común. La ansiedad muchas veces aparece justo cuando intentas descansar.</p>
-    <button class="btn-option btn-si" onclick="nextStep('step1', 'step2')">Sí</button>
-    <button class="btn-option btn-no" onclick="nextStep('step1', 'step2')">No</button>
-    <div class="arrow"></div>
+  <div class="step-container">
+
+    <div class="step" id="step1">
+      <h2><ion-icon name="alarm-outline" class="symptom-icon"></ion-icon>¿Tienes dificultad para conciliar el sueño aunque estés cansado(a)?</h2>
+      <p>Es muy común. La ansiedad muchas veces aparece justo cuando intentas descansar.</p>
+      <button class="btn-option btn-si" onclick="nextStep('step1', 'step2')">Sí</button>
+      <button class="btn-option btn-no" onclick="nextStep('step1', 'step2')">No</button>
+      <div class="arrow"></div>
+    </div>
+
+    <div class="step" id="step2">
+      <h2><ion-icon name="alert-circle-outline" class="symptom-icon"></ion-icon>¿Te despiertas durante la noche y cuesta volver a dormirte?</h2>
+      <p>El insomnio es señal de estrés acumulado. Y puede cambiar.</p>
+      <button class="btn-option btn-si" onclick="nextStep('step2', 'step3')">Sí</button>
+      <button class="btn-option btn-no" onclick="nextStep('step2', 'step3')">No</button>
+      <div class="arrow"></div>
+    </div>
+
+    <div class="step" id="step3">
+      <h2><ion-icon name="medicine-outline" class="symptom-icon"></ion-icon>¿Has usado pastillas o infusiones para poder dormir?</h2>
+      <p>A veces buscamos soluciones rápidas… pero queremos una solución real.</p>
+      <button class="btn-option btn-si" onclick="nextStep('step3', 'step4')">Sí</button>
+      <button class="btn-option btn-no" onclick="nextStep('step3', 'step4')">No</button>
+      <div class="arrow"></div>
+    </div>
+
+    <div class="step" id="step4">
+      <h2><ion-icon name="brain-outline" class="symptom-icon"></ion-icon>¿Tu mente parece no apagarse cuando intentas dormir?</h2>
+      <p>La mente acelerada es uno de los mayores obstáculos para un sueño tranquilo.</p>
+      <button class="btn-option btn-si" onclick="nextStep('step4', 'step5')">Sí</button>
+      <button class="btn-option btn-no" onclick="nextStep('step4', 'step5')">No</button>
+      <div class="arrow"></div>
+    </div>
+
+    <div class="step" id="step5">
+      <h2><ion-icon name="muscle-strong-outline" class="symptom-icon"></ion-icon>¿Sientes tensión física o nerviosismo antes de dormir?</h2>
+      <p>Tu cuerpo también habla cuando el estrés se queda atrapado.</p>
+      <button class="btn-option btn-si" onclick="nextStep('step5', 'step6')">Sí</button>
+      <button class="btn-option btn-no" onclick="nextStep('step5', 'step6')">No</button>
+      <div class="arrow"></div>
+    </div>
+
+    <div class="step" id="step6">
+      <h2><ion-icon name="people-outline" class="symptom-icon"></ion-icon>¿Evitas situaciones sociales por temor a sentirte incómodo(a)?</h2>
+      <p>La ansiedad puede aislar. Pero no tiene por qué seguir así.</p>
+      <button class="btn-option btn-si" onclick="nextStep('step6', 'step7')">Sí</button>
+      <button class="btn-option btn-no" onclick="nextStep('step6', 'step7')">No</button>
+      <div class="arrow"></div>
+    </div>
+
+    <div class="step" id="step7">
+      <h2><ion-icon name="money-outline" class="symptom-icon"></ion-icon>¿Cuánto has invertido ya buscando soluciones para dormir mejor?</h2>
+      <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">$0 – No he probado nada</button>
+      <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $20</button>
+      <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $50</button>
+      <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $100</button>
+      <div class="arrow"></div>
+    </div>
+
+    <div class="step" id="step8">
+      <h2><ion-icon name="cart-outline" class="symptom-icon"></ion-icon>Después de probar con medicamentos o consultar con especialistas, ¿estarías dispuesto a probar una solución práctica, que te puede costar menos de lo que cuesta cualquier especialista, para recuperar el sueño tranquilo en solo 7 días?</h2>
+      <button class="btn-option btn-si" onclick="nextStep('step8', 'result_yes')">Sí</button>
+      <button class="btn-option btn-no" onclick="nextStep('step8', 'result_no')">No</button>
+    </div>
+
+    <!-- RESULTADO FINAL (SI) -->
+    <div class="result happy" id="result_yes" style="display:none;">
+      <h2>🎉 ¡Felicidades!</h2>
+      <h3>Estás a punto de darle un giro a tu vida nocturna.</h3>
+
+      <div class="testimonial">“Hacía años que no dormía bien. En 7 días recuperé la paz.” – Laura</div>
+      <div class="testimonial">“Me levantaba cada mañana agotado(a). Esta guía me dio herramientas reales para cambiar.” – Carlos</div>
+
+      <p>Lo que has vivido no es casualidad. Muchas personas como tú terminan desarrollando ansiedad porque su cuerpo y mente están en alerta constante.</p>
+
+      <p>Nuestra guía "<strong>Adiós Síntomas</strong>" ha ayudado a miles a:</p>
+      <ul>
+        <li>Relajar la mente antes de dormir</li>
+        <li>Calmar los pensamientos que te mantienen despierto(a)</li>
+        <li>Recuperar la claridad mental al día siguiente</li>
+        <li>Reducir la necesidad de pastillas para dormir</li>
+      </ul>
+
+      <p>Por tiempo limitado, puedes acceder a esta guía en <strong>OFERTA</strong>.  
+         Es menos que un café.  
+         Es menos que una consulta médica.  
+         Pero puede darte un descanso verdadero.</p>
+
+      <p><em>Y si no notas cambios en 7 días, te devolvemos tu dinero. Sin preguntas.</em></p>
+    </div>
+
+    <!-- RESULTADO FINAL (NO) -->
+    <div class="result sad" id="result_no" style="display:none;">
+      <h2>😔 Entiendo tu decisión</h2>
+      <h3>Tu bienestar físico y emocional son importantes, incluso si hoy no das este paso.</h3>
+      <p>Sabemos que buscar ayuda no siempre es fácil. Pero recuerda: hay soluciones accesibles, naturales y efectivas.</p>
+      <p>Si en el futuro decides tomar acción, nuestra guía "<strong>Adiós Síntomas</strong>" estará aquí para ayudarte.</p>
+      <p>No estás solo(a). Y no tienes que seguir así.</p>
+    </div>
+
+    <!-- Contenedor dinámico para el botón de compra -->
+    <div id="checkout-container" style="text-align:center;"></div>
   </div>
 
-  <div class="step" id="step2">
-    <h2>¿Te despiertas durante la noche y cuesta volver a dormirte?</h2>
-    <p>El insomnio es señal de estrés acumulado. Y puede cambiar.</p>
-    <button class="btn-option btn-si" onclick="nextStep('step2', 'step3')">Sí</button>
-    <button class="btn-option btn-no" onclick="nextStep('step2', 'step3')">No</button>
-    <div class="arrow"></div>
+  <!-- Beneficios -->
+  <div class="benefits">
+    <div class="benefit"><ion-icon name="bed-outline" class="symptom-icon"></ion-icon>Sueño reparador nocturno</div>
+    <div class="benefit"><ion-icon name="meditation-outline" class="symptom-icon"></ion-icon>Calma mental antes de dormir</div>
+    <div class="benefit"><ion-icon name="chatbubbles-outline" class="symptom-icon"></ion-icon>Menos pensamientos acelerados</div>
+    <div class="benefit"><ion-icon name="cash-outline" class="symptom-icon"></ion-icon>Sin gastos innecesarios</div>
   </div>
 
-  <div class="step" id="step3">
-    <h2>¿Has usado pastillas o infusiones para poder dormir?</h2>
-    <p>A veces buscamos soluciones rápidas… pero queremos una solución real.</p>
-    <button class="btn-option btn-si" onclick="nextStep('step3', 'step4')">Sí</button>
-    <button class="btn-option btn-no" onclick="nextStep('step3', 'step4')">No</button>
-    <div class="arrow"></div>
+  <!-- Carrusel de testimonios -->
+  <div class="testimonial-slider">
+    <div class="testimonial-slide active">
+      <ion-icon name="thumbs-up-outline" class="testimonial-icon"></ion-icon>
+      “Hacía años que no dormía bien. En 7 días recuperé la paz.” – Laura
+    </div>
+    <div class="testimonial-slide">
+      <ion-icon name="medal-outline" class="testimonial-icon"></ion-icon>
+      “Me levantaba cada mañana agotado(a). Esta guía me dio herramientas reales para cambiar.” – Carlos
+    </div>
+    <div class="testimonial-slide">
+      <ion-icon name="happy-outline" class="testimonial-icon"></ion-icon>
+      “Finalmente puedo dormir sin pastillas. ¡Gracias!” – Marta
+    </div>
+    <div class="testimonial-slide">
+      <ion-icon name="sleep-outline" class="testimonial-icon"></ion-icon>
+      “Mi mente ya no está acelerada antes de dormir. Es increíble.” – Juan
+    </div>
+    <div class="testimonial-slide">
+      <ion-icon name="wallet-outline" class="testimonial-icon"></ion-icon>
+      “No gasté más de $5 USD y ya noté resultados. ¡Impresionante!” – Pedro
+    </div>
   </div>
-
-  <div class="step" id="step4">
-    <h2>¿Tu mente parece no apagarse cuando intentas dormir?</h2>
-    <p>La mente acelerada es uno de los mayores obstáculos para un sueño tranquilo.</p>
-    <button class="btn-option btn-si" onclick="nextStep('step4', 'step5')">Sí</button>
-    <button class="btn-option btn-no" onclick="nextStep('step4', 'step5')">No</button>
-    <div class="arrow"></div>
-  </div>
-
-  <div class="step" id="step5">
-    <h2>¿Sientes tensión física o nerviosismo antes de dormir?</h2>
-    <p>Tu cuerpo también habla cuando el estrés se queda atrapado.</p>
-    <button class="btn-option btn-si" onclick="nextStep('step5', 'step6')">Sí</button>
-    <button class="btn-option btn-no" onclick="nextStep('step5', 'step6')">No</button>
-    <div class="arrow"></div>
-  </div>
-
-  <div class="step" id="step6">
-    <h2>¿Evitas situaciones sociales por temor a sentirte incómodo(a)?</h2>
-    <p>La ansiedad puede aislar. Pero no tiene por qué seguir así.</p>
-    <button class="btn-option btn-si" onclick="nextStep('step6', 'step7')">Sí</button>
-    <button class="btn-option btn-no" onclick="nextStep('step6', 'step7')">No</button>
-    <div class="arrow"></div>
-  </div>
-
-  <div class="step" id="step7">
-    <h2>¿Cuánto has invertido ya buscando soluciones para dormir mejor?</h2>
-    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">$0 – No he probado nada</button>
-    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $20</button>
-    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $50</button>
-    <button class="btn-option btn-other" onclick="nextStep('step7', 'step8')">Más de $100</button>
-    <div class="arrow"></div>
-  </div>
-
-  <div class="step" id="step8">
-    <h2>Después de probar con medicamentos o consultar con especialistas, ¿estarías dispuesto a probar una solución práctica, que te puede costar menos de lo que cuesta cualquier especialista, para recuperar el sueño tranquilo en solo 7 días?</h2>
-    <button class="btn-option btn-si" onclick="nextStep('step8', 'result_yes')">Sí</button>
-    <button class="btn-option btn-no" onclick="nextStep('step8', 'result_no')">No</button>
-  </div>
-
-  <!-- RESULTADO FINAL (SI) -->
-  <div class="result happy" id="result_yes" style="display:none;">
-    <h2>🎉 ¡Felicidades!</h2>
-    <h3>Estás a punto de darle un giro a tu vida nocturna.</h3>
-    <p>Lo que has vivido no es casualidad. Muchas personas que no pueden dormir bien terminan desarrollando ansiedad y fatiga emocional.</p>
-    <p>Nuestra guía "<strong>Adiós Síntomas</strong>" ha ayudado a miles a:</p>
-    <ul>
-      <li>Relajar la mente antes de dormir</li>
-      <li>Calmar los pensamientos que te mantienen despierto(a)</li>
-      <li>Recuperar la claridad mental al día siguiente</li>
-      <li>Reducir la necesidad de pastillas para dormir</li>
-    </ul>
-    <p>Por tiempo limitado, puedes acceder a esta guía en <strong>OFERTA</strong>.  
-       Es menos que un café.  
-       Es menos que una consulta médica.  
-       Pero puede darte un descanso verdadero.</p>
-    <p><em>Y si no notas cambios en 7 días, te devolvemos tu dinero. Sin preguntas.</em></p>
-  </div>
-
-  <!-- RESULTADO FINAL (NO) -->
-  <div class="result sad" id="result_no" style="display:none;">
-    <h2>😔 Entiendo tu decisión</h2>
-    <h3>Tu bienestar emocional y físico son importantes, incluso si hoy no das este paso.</h3>
-    <p>Sabemos que buscar ayuda no siempre es fácil. Pero recuerda: hay soluciones accesibles, naturales y efectivas.</p>
-    <p>Si en el futuro decides tomar acción, nuestra guía "<strong>Adiós Síntomas</strong>" estará aquí para ayudarte.</p>
-    <p>No estás solo(a). Y no tienes que seguir así.</p>
-  </div>
-
-  <!-- Contenedor dinámico para el botón de compra -->
-  <div id="checkout-container" style="text-align:center;"></div>
-</div>
 
 <script type="module" src="https://unpkg.com/ionicons @7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons @7.1.0/dist/ionicons/ionicons.js"></script>
@@ -438,10 +512,13 @@
     setTimeout(() => {
       const container = document.getElementById("checkout-container");
       container.innerHTML = `
-        <a target="_blank" rel="noopener" href="https://pay.hotmart.com/W99622832H?checkoutMode=10 " class="hotmart__button-checkout" onclick="trackPurchase()">
+        <a target="_blank" rel="noopener" href="https://pay.hotmart.com/W99622832H?off=ocl87h2q&checkoutMode=10 " class="hotmart__button-checkout">
           🌙 ¡Sí! Quiero empezar a dormir tranquilo(a) HOY
         </a>
+        <div class="small-text">Oferta por tiempo limitado · Acceso inmediato</div>
       `;
+      // Evento AddToCart cuando el usuario llega al final
+      fbq('track', 'AddToCart', { value: 5.00, currency: 'USD' });
     }, 500);
   }
 
@@ -456,9 +533,29 @@
     }, 300);
   }
 
-  function trackPurchase() {
-    fbq('track', 'AddToCart', { value: 5.00, currency: 'USD' });
+  // Carrusel de testimonios automático
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.testimonial-slide');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = 'none';
+    });
+    slides[index].style.display = 'block';
   }
+
+  function startCarousel() {
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 5000);
+  }
+
+  // Iniciar carrusel al cargar la página
+  window.onload = () => {
+    showSlide(currentSlide);
+    startCarousel();
+  };
 
   // Cargar Hotmart globalmente
   (function importHotmart() {
